@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-xs-2"></div>
+
+
+  <div class="col-xs-8">
+      <h1>Restaurants</h1>
+
+      <% @restaurants.each do |restaurant| %>
+      <a href="<%= restaurant_path(restaurant) %>" style="text-decoration:none; color:#000">
+        <div class="card">
+          <div class="card-block">
+            <h2><%= restaurant.name %></h2>
+            <h4><%= restaurant.category %></h4>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= restaurant.address %>
+           <br/>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <i><%= restaurant.phone_number %></i>
+          </div>
+        </div>
+        <hr/>
+      </a>
+      <% end %>
+
+
+      <br>
+
+      <%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-primary"  %>
+  </div>
+
+
+  <div class="col-xs-2"></div>
+</div>

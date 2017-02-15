@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-xs-1 col-md-2"></div>
+
+
+  <div class="col-xs-10 col-md-8">
+
+
+    <div class="row">
+      <div class="col-xs-12 col-md-2"><h2><img src="<%= Faker::LoremPixel.image %>" class="img-circle img-responsive"></h2></div>
+      <div class="col-xs-12 col-md-10">
+        <h1><%= @restaurant.name %></h1>
+        <h3><%= @restaurant.category %> restaurant</h3>
+        <p>
+           <i class="fa fa-map-marker" aria-hidden="true"></i>
+           <%= @restaurant.address %>
+           <br/>
+           <i class="fa fa-phone" aria-hidden="true"></i>
+           <%= @restaurant.phone_number %>
+        </p>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+    <% @reviews.each do | review | %>
+        <div class="col-xs-12 col-md-2 text-right">
+          <h4>
+          <% review.rating.times do %>
+            <i class='fa fa-star' aria-hidden='true'></i>
+          <% end %>
+          </h4>
+        </div>
+        <div class="col-xs-12 col-md-10">
+          <blockquote><%= review.content %></blockquote>
+        </div>
+    <% end %>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-xs-offset col-md-2"></div>
+      <div class="col-xs-12 col-md-8">
+        <%= link_to 'Back to list', restaurants_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="col-xs-1 col-md-2"></div>
+</div>
